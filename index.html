@@ -30,47 +30,69 @@
         .button:hover {
             background-color: #0056b3;
         }
+        .script-content {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Welcome to Our One-Page Website</h1>
-        <p>Click one of the buttons below:</p>
+        <div class="script-content" id="script1">
+            <!-- Script 1 content here -->
+            <h2>Script 1 Content</h2>
+            <!-- You can add content specific to Script 1 here -->
+        </div>
+        <div class="script-content" id="script2">
+            <!-- Script 2 content here -->
+            <h2>Script 2 Content</h2>
+            <!-- You can add content specific to Script 2 here -->
+        </div>
+        <div class="script-content" id="script3">
+            <!-- Script 3 content here -->
+            <h2>Script 3 Content</h2>
+            <!-- You can add content specific to Script 3 here -->
+        </div>
         <button class="button" id="button1">ВЫБРАТЬ БИЛЕТЫ</button>
         <button class="button" id="button2">САМЫЙ ДЕШЕВЫЙ ЗА МЕСЯЦ</button>
         <button class="button" id="button3">КАРТА БИЛЕТОВ</button>
     </div>
 
-    <!-- JavaScript to load scripts when buttons are clicked -->
+    <!-- JavaScript to load scripts and show content when buttons are clicked -->
     <script>
-        document.getElementById("button1").addEventListener("click", function() {
-            // Create a script element and set its source
-            var script = document.createElement("script");
-            script.src = "https://tp.media/content?currency=usd&trs=275897&shmarker=494231.999&show_hotels=true&powered_by=true&locale=en&searchUrl=www.aviasales.ru%2Fsearch&color_button=%23FF0005ff&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFFff&secondary=%23FFFFFF00&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=0&no_labels=true&plain=true&promo_id=7879&campaign_id=100";
+        var currentScriptId = null;
+
+        function loadScript(scriptId, scriptSrc) {
+            if (currentScriptId !== null) {
+                // Remove the currently loaded script
+                var currentScript = document.getElementById(currentScriptId);
+                currentScript.style.display = "none";
+            }
+
+            // Load the new script
+            var scriptContent = document.getElementById(scriptId);
+            var scriptElement = document.createElement("script");
+            scriptElement.src = scriptSrc;
             
             // Append the script element to the body to load the script
-            document.body.appendChild(script);
+            document.body.appendChild(scriptElement);
+
+            // Show the content associated with the script
+            scriptContent.style.display = "block";
+            currentScriptId = scriptId;
+        }
+
+        document.getElementById("button1").addEventListener("click", function() {
+            loadScript("script1", "https://tp.media/content?currency=usd&trs=275897&shmarker=494231.999&show_hotels=true&powered_by=true&locale=en&searchUrl=www.aviasales.ru%2Fsearch&color_button=%23FF0005ff&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFFff&secondary=%23FFFFFF00&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=0&no_labels=true&plain=true&promo_id=7879&campaign_id=100");
         });
 
         document.getElementById("button2").addEventListener("click", function() {
-            // Create a script element and set its source
-            var script = document.createElement("script");
-            script.src = "https://tp.media/content?currency=usd&trs=275897&shmarker=494231.998&searchUrl=www.aviasales.ru%2Fsearch&locale=en&powered_by=true&one_way=true&only_direct=false&period=year&range=7%2C14&width=800&primary=%23FF0004ff&color_background=%23FFFFFF00&dark=%23262626&light=%23FFFFFFff&achieve=%23FF0000ff&promo_id=4041&campaign_id=100";
-            
-            // Append the script element to the body to load the script
-            document.body.appendChild(script);
+            loadScript("script2", "https://tp.media/content?currency=usd&trs=275897&shmarker=494231.998&searchUrl=www.aviasales.ru%2Fsearch&locale=en&powered_by=true&one_way=true&only_direct=false&period=year&range=7%2C14&width=800&primary=%23FF0004ff&color_background=%23FFFFFF00&dark=%23262626&light=%23FFFFFFff&achieve=%23FF0000ff&promo_id=4041&campaign_id=100");
         });
 
         document.getElementById("button3").addEventListener("click", function() {
-            // Create a script element and set its source
-            var script = document.createElement("script");
-            script.src = "https://tp.media/content?currency=rub&trs=275897&shmarker=494231.999&lat=&lng=&powered_by=true&search_host=www.aviasales.ru%2Fsearch&locale=ru&value_min=0&value_max=1000000&only_direct=false&radius=1&draggable=true&disable_zoom=false&show_logo=false&scrollwheel=true&primary=%23FF0003ff&secondary=%23FFFFFF00&light=%23FFFFFFff&width=1500&height=500&zoom=2&promo_id=4054&campaign_id=100";
-            
-            // Append the script element to the body to load the script
-            document.body.appendChild(script);
+            loadScript("script3", "https://tp.media/content?currency=rub&trs=275897&shmarker=494231.999&lat=&lng=&powered_by=true&search_host=www.aviasales.ru%2Fsearch&locale=ru&value_min=0&value_max=1000000&only_direct=false&radius=1&draggable=true&disable_zoom=false&show_logo=false&scrollwheel=true&primary=%23FF0003ff&secondary=%23FFFFFF00&light=%23FFFFFFff&width=1500&height=500&zoom=2&promo_id=4054&campaign_id=100");
         });
     </script>
 </body>
 </html>
-
-
