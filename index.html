@@ -3,33 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
-        }
-        .container {
-            padding: 20px;
-        }        .script-content {
-            display: none;
-        }
-    </style>
+    <title>Script Loading Page</title>
 </head>
 <body>
-    <div class="container">
-        <div class="script-content" id="script1">
-            <!-- Script 1 content here -->
-            <!-- You can add content specific to Script 1 here -->
-        </div>
-        <div class="script-content" id="script3">
-            <!-- Script 3 content here -->
-            <!-- You can add content specific to Script 3 here -->
-        </div>
-    </div>
-      
+    <h1>Welcome to the Script Loading Page</h1>
+
+    <!-- JavaScript to load scripts when the page loads -->
     <script>
+        function loadScript(scriptId, scriptSrc) {
+            var scriptElement = document.createElement("script");
+            scriptElement.src = scriptSrc;
+
+            // Append the script element to the body to load the script
+            document.body.appendChild(scriptElement);
+        }
+
         // Load script 1 and script 3 when the page loads
         window.onload = function() {
             loadScript("script1", "https://tp.media/content?currency=rub&trs=275897&shmarker=494231.999&show_hotels=false&powered_by=true&locale=ru&searchUrl=www.aviasales.ru%2Fsearch&color_button=%23FF0006ff&color_icons=%23FF0000ff&dark=%23262626&light=%23FFFFFFff&secondary=%23FFFFFFff&special=%23C4C4C4&color_focused=%23FF0000ff&border_radius=15&no_labels=true&plain=true&promo_id=7879&campaign_id=100");
