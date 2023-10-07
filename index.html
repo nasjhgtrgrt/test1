@@ -38,6 +38,9 @@
 <body>
     <div class="container">
         <h1>Welcome to Our One-Page Website</h1>
+        <button class="button" id="button1">ВЫБРАТЬ БИЛЕТЫ</button>
+        <button class="button" id="button2">САМЫЙ ДЕШЕВЫЙ ЗА МЕСЯЦ</button>
+        <button class="button" id="button3">КАРТА БИЛЕТОВ</button>
         <div class="script-content" id="script1">
             <!-- Script 1 content here -->
             <h2>Script 1 Content</h2>
@@ -53,41 +56,35 @@
             <h2>Script 3 Content</h2>
             <!-- You can add content specific to Script 3 here -->
         </div>
-        <button class="button" id="button1">ВЫБРАТЬ БИЛЕТЫ</button>
-        <button class="button" id="button2">САМЫЙ ДЕШЕВЫЙ ЗА МЕСЯЦ</button>
-        <button class="button" id="button3">КАРТА БИЛЕТОВ</button>
     </div>
 
-    <!-- JavaScript to load scripts and show content when buttons are clicked -->
+    <!-- JavaScript to load scripts and show/hide content when buttons are clicked -->
     <script>
         var currentScriptId = null;
 
         function loadScript(scriptId, scriptSrc) {
             if (currentScriptId !== null) {
-                // Remove the currently loaded script
+                // Hide the currently displayed script
                 var currentScript = document.getElementById(currentScriptId);
                 currentScript.style.display = "none";
-
-                // Enable the previously clicked button
-                var previousButton = document.getElementById(currentScriptId.replace("script", "button"));
-                previousButton.disabled = false;
             }
 
-            // Load the new script
-            var scriptContent = document.getElementById(scriptId);
-            var scriptElement = document.createElement("script");
-            scriptElement.src = scriptSrc;
-
-            // Append the script element to the body to load the script
-            document.body.appendChild(scriptElement);
-
             // Show the content associated with the script
+            var scriptContent = document.getElementById(scriptId);
             scriptContent.style.display = "block";
+
+            // Set the current script ID
             currentScriptId = scriptId;
 
-            // Disable the clicked button
+            // Disable all buttons
+            var buttons = document.querySelectorAll(".button");
+            buttons.forEach(function(button) {
+                button.disabled = true;
+            });
+
+            // Enable the clicked button
             var clickedButton = document.getElementById(scriptId.replace("script", "button"));
-            clickedButton.disabled = true;
+            clickedButton.disabled = false;
         }
 
         document.getElementById("button1").addEventListener("click", function() {
@@ -104,3 +101,4 @@
     </script>
 </body>
 </html>
+
