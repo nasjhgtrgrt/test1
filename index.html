@@ -7,29 +7,20 @@
 </head>
 <body>
 <body>
-   <script>
-        // Function to hide images with a specific src attribute
-        function hideImagesWithSrc(srcValue) {
-            var images = document.querySelectorAll('img[src="' + srcValue + '"]');
+            <script>
+        // Function to delete images with a specific width attribute
+        function deleteImagesWithWidth(widthValue) {
+            var images = document.querySelectorAll('img[width="' + widthValue + '"]');
             images.forEach(function(image) {
-                image.style.display = "none";
+                image.remove();
             });
         }
 
-        // Continuously check and hide images with src="https://www.travelpayouts.com/powered_by/img/as.png"
-        setInterval(function() {
-            hideImagesWithSrc("https://www.travelpayouts.com/powered_by/img/as.png");
-        }, 1000); // Adjust the interval as needed (e.g., 1000 ms = 1 second)
-
-        function loadScript(scriptId, scriptSrc) {
-            var scriptElement = document.createElement("script");
-            scriptElement.src = scriptSrc;
-
-            // Append the script element to the body to load the script
-            document.body.appendChild(scriptElement);
-        }
-
-
+        // Delete images with width="145" after 3 seconds
+        setTimeout(function() {
+            deleteImagesWithWidth("145");
+        }, 3000); // 3000 ms = 3 seconds
+    </script>
 
         // Load script 1 and script 3 when the page loads
         window.onload = function() {
