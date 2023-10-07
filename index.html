@@ -12,8 +12,7 @@
         }
         .container {
             padding: 20px;
-        }
-        .script-content {
+        }        .script-content {
             display: none;
         }
     </style>
@@ -29,49 +28,13 @@
             <!-- You can add content specific to Script 3 here -->
         </div>
     </div>
-
-    <!-- JavaScript to load scripts and continuously remove elements with tp_powered_by class and img elements with width=145 -->
+      
     <script>
-        function loadScript(scriptId, scriptSrc) {
-            // Show the content associated with the script
-            var scriptContent = document.getElementById(scriptId);
-            scriptContent.style.display = "block";
-
-            // Load the new script
-            var scriptElement = document.createElement("script");
-            scriptElement.src = scriptSrc;
-
-            // Append the script element to the body to load the script
-            document.body.appendChild(scriptElement);
-        }
-
-        // Remove elements with tp_powered_by class
-        function removeElementsWithClass(className) {
-            var elements = document.getElementsByClassName(className);
-            while (elements.length > 0) {
-                elements[0].parentNode.removeChild(elements[0]);
-            }
-        }
-
-        // Remove img elements with width=145
-        function removeImagesWithWidth(widthValue) {
-            var images = document.querySelectorAll('img[width="' + widthValue + '"]');
-            images.forEach(function(image) {
-                image.parentNode.removeChild(image);
-            });
-        }
-
         // Load script 1 and script 3 when the page loads
         window.onload = function() {
             loadScript("script1", "https://tp.media/content?currency=rub&trs=275897&shmarker=494231.999&show_hotels=false&powered_by=true&locale=ru&searchUrl=www.aviasales.ru%2Fsearch&color_button=%23FF0006ff&color_icons=%23FF0000ff&dark=%23262626&light=%23FFFFFFff&secondary=%23FFFFFFff&special=%23C4C4C4&color_focused=%23FF0000ff&border_radius=15&no_labels=true&plain=true&promo_id=7879&campaign_id=100");
             loadScript("script3", "https://tp.media/content?currency=rub&trs=275897&shmarker=494231.999&lat=&lng=&powered_by=true&search_host=www.aviasales.ru%2Fsearch&locale=ru&value_min=0&value_max=1000000&only_direct=false&radius=1&draggable=true&disable_zoom=false&show_logo=false&scrollwheel=true&primary=%23FF0003ff&secondary=%23FFFFFF00&light=%23FFFFFFff&width=1500&height=500&zoom=2&promo_id=4054&campaign_id=100");
         };
-
-        // Continuously check and remove elements with tp_powered_by class and img elements with width=145 every second
-        setInterval(function() {
-            removeElementsWithClass("tp_powered_by");
-            removeImagesWithWidth("145");
-        }, 1000); // Adjust the interval as needed
     </script>
 </body>
 </html>
