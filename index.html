@@ -3,43 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One-Page Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
-        }
-        .container {
-            padding: 20px;
-        }
-        .button {
-            display: block;
-            width: 90%;
-            max-width: 400px;
-            margin: 10px auto;
-            padding: 15px;
-            font-size: 18px;
-            background-color: #007bff;
-            color: #fff;
-            text-decoration: none;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <title>Run Scripts on Same Page</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Our One-Page Website</h1>
-        <p>Click one of the buttons below:</p>
-        <a href="https://tp.media/content?currency=usd&trs=275897&shmarker=494231.999&show_hotels=true&powered_by=true&locale=en&searchUrl=www.aviasales.ru%2Fsearch&color_button=%23FF0005ff&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFFff&secondary=%23FFFFFF00&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=0&no_labels=true&plain=true&promo_id=7879&campaign_id=100" class="button">ВЫБРАТЬ БИЛЕТЫ</a>
-        <a href="https://tp.media/content?currency=usd&trs=275897&shmarker=494231.998&searchUrl=www.aviasales.ru%2Fsearch&locale=en&powered_by=true&one_way=true&only_direct=false&period=year&range=7%2C14&width=800&primary=%23FF0004ff&color_background=%23FFFFFF00&dark=%23262626&light=%23FFFFFFff&achieve=%23FF0000ff&promo_id=4041&campaign_id=100" class="button">САМЫЙ ДЕШЕВЫЙ ЗА МЕСЯЦ</a>
-        <a href="https://tp.media/content?currency=rub&trs=275897&shmarker=494231.999&lat=&lng=&powered_by=true&search_host=www.aviasales.ru%2Fsearch&locale=ru&value_min=0&value_max=1000000&only_direct=false&radius=1&draggable=true&disable_zoom=false&show_logo=false&scrollwheel=true&primary=%23FF0003ff&secondary=%23FFFFFF00&light=%23FFFFFFff&width=1500&height=500&zoom=2&promo_id=4054&campaign_id=100" class="button">КАРТА БИЛЕТОВ</a>
-    </div>
+    <h1>Welcome to Our Page</h1>
+    
+    <!-- First script in an iframe -->
+    <iframe src="https://tp.media/content?currency=usd&trs=275897&shmarker=494231.999&show_hotels=true&powered_by=true&locale=en&searchUrl=www.aviasales.ru%2Fsearch&color_button=%23FF0005ff&color_icons=%2332a8dd&dark=%23262626&light=%23FFFFFFff&secondary=%23FFFFFF00&special=%23C4C4C4&color_focused=%2332a8dd&border_radius=0&no_labels=true&plain=true&promo_id=7879&campaign_id=100" frameborder="0" width="100%" height="300"></iframe>
+
+    <!-- Second script in an iframe -->
+    <iframe src="https://tp.media/content?currency=usd&trs=275897&shmarker=494231.998&searchUrl=www.aviasales.ru%2Fsearch&locale=en&powered_by=true&one_way=true&only_direct=false&period=year&range=7%2C14&width=100%" frameborder="0" width="100%" height="300"></iframe>
+
+    <!-- Third script in an iframe -->
+    <iframe src="https://tp.media/content?currency=rub&trs=275897&shmarker=494231.999&lat=&lng=&powered_by=true&search_host=www.aviasales.ru%2Fsearch&locale=ru&value_min=0&value_max=1000000&only_direct=false&radius=1&draggable=true&disable_zoom=false&show_logo=false&scrollwheel=true&primary=%23FF0003ff&secondary=%23FFFFFF00&light=%23FFFFFFff&width=100%" frameborder="0" width="100%" height="300"></iframe>
 </body>
 </html>
+
 
