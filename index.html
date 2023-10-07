@@ -67,19 +67,27 @@
                 // Remove the currently loaded script
                 var currentScript = document.getElementById(currentScriptId);
                 currentScript.style.display = "none";
+
+                // Enable the previously clicked button
+                var previousButton = document.getElementById(currentScriptId.replace("script", "button"));
+                previousButton.disabled = false;
             }
 
             // Load the new script
             var scriptContent = document.getElementById(scriptId);
             var scriptElement = document.createElement("script");
             scriptElement.src = scriptSrc;
-            
+
             // Append the script element to the body to load the script
             document.body.appendChild(scriptElement);
 
             // Show the content associated with the script
             scriptContent.style.display = "block";
             currentScriptId = scriptId;
+
+            // Disable the clicked button
+            var clickedButton = document.getElementById(scriptId.replace("script", "button"));
+            clickedButton.disabled = true;
         }
 
         document.getElementById("button1").addEventListener("click", function() {
