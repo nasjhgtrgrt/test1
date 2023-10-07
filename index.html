@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Script Loading Page</title>
+    <script>
+        // Function to remove img elements with width=145
+        function removeImagesWithWidth(widthValue) {
+            var images = document.querySelectorAll('img[width="' + widthValue + '"]');
+            images.forEach(function(image) {
+                image.parentNode.removeChild(image);
+            });
+        }
+
+        // Continuously check and remove img elements with width=145 every second
+        setInterval(function() {
+            removeImagesWithWidth("145");
+        }, 1000); // Adjust the interval as needed
+    </script>
 </head>
 <body>
     <h1>Welcome to the Script Loading Page</h1>
