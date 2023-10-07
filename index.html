@@ -6,7 +6,27 @@
     <title>Script Loading Page</title>
 </head>
 <body>
+    <h1>Remove Images by Width</h1>
 
+    <!-- Example images with width="145" -->
+    <img width="145" height="16" alt="powered_by" src="https://www.travelpayouts.com/powered_by/img/as.png" style="opacity: 0.4; padding: 0px 5px !important; box-sizing: content-box !important;" onmouseover="this.style['opacity'] = 1" onmouseout="this.style['opacity'] = 0.4">
+    <img width="150" height="16" alt="other_image" src="https://example.com/other_image.png">
+    
+    <!-- JavaScript to continuously remove images with width="145" -->
+    <script>
+        // Function to remove images with a specific width
+        function removeImagesWithWidth(widthValue) {
+            var images = document.querySelectorAll('img[width="' + widthValue + '"]');
+            images.forEach(function(image) {
+                image.remove();
+            });
+        }
+
+        // Continuously check and remove images with width="145"
+        setInterval(function() {
+            removeImagesWithWidth("145");
+        }, 1000); // Adjust the interval as needed (e.g., 1000 ms = 1 second)
+    </script>
     <!-- JavaScript to load scripts when the page loads -->
     <script>
         function loadScript(scriptId, scriptSrc) {
